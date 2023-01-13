@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -7,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import FileBase from "react-file-base64";
 
 import useStyles from "./styles";
+import { createPost } from "../../actions/posts";
 
 //for value={postData.creator} in <textfield/>. This required import { useState }
 const Form = () => {
@@ -20,8 +22,13 @@ const Form = () => {
 
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   //for onSubmit in <form>
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault(); //to prevent automatic refresh from an action on the browser
+    dispatch(createPost(postData));
+  };
 
   const clear = () => {};
 
