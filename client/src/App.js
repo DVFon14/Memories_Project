@@ -1,5 +1,5 @@
 //============== React import ==============//
-import React from "react";
+import React, { useEffect } from "react";
 
 //============== Material UI import ==============//
 import AppBar from "@mui/material/AppBar";
@@ -8,7 +8,11 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Grow from "@mui/material/Grow";
 
+//============== React-redux import ==============//
+import { useDispatch } from "react-redux";
+
 //============== Files and Folders imports ==============//
+import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import memories from "./images/memories.png";
@@ -17,6 +21,12 @@ import useStyles from "./styles";
 //============== Code ==============//
 const App = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <Container maxwidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
