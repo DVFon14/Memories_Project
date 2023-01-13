@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-//import DeleteIcon from "@material-ui/icon/Delete";
+import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 
@@ -52,14 +52,14 @@ const Post = ({ post }) => {
       </CardContent>
 
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClicke={() => {}}>
+        <Button size="small" color="primary" onClick={() => {}}>
           <ThumbUpAltIcon fonstSize="small" />
           Like
           {post.likeCount}
         </Button>
 
-        <Button size="small" color="primary" onClicke={() => {}}>
-          {/*          <DelteIcon fonstSize="small" />*/}
+        <Button size="small" color="primary" onClick={() => {}}>
+          <DeleteIcon fonstSize="small" />
           Delete
         </Button>
       </CardActions>
