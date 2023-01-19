@@ -2,12 +2,21 @@
 import React from "react";
 
 //============== Material UI import ==============//
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+// import Card from "@mui/material/Card";
+// import CardActions from "@mui/material/CardActions";
+// import CardContent from "@mui/material/CardContent";
+// import CardMedia from "@mui/material/CardMedia";
+// import Button from "@mui/material/Button";
+// import Typography from "@mui/material/Typography";
+
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@material-ui/core";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
@@ -17,7 +26,7 @@ import moment from "moment";
 import useStyles from "./styles";
 
 //============== Code ==============//
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -34,7 +43,11 @@ const Post = ({ post }) => {
       </div>
 
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => {}}>
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => setCurrentId(post._id)}
+        >
           <MoreHorizIcon frontSize="default" />
         </Button>
       </div>

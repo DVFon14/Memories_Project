@@ -12,7 +12,7 @@ import Post from "./Post/Post";
 import useStyles from "./styles";
 
 //============== Code ==============//
-const Posts = () => {
+const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
@@ -29,7 +29,9 @@ const Posts = () => {
     >
       {posts.map((post) => (
         <Grid key={post._id} item xs={12} sm={6}>
-          <Post post={post} />
+          {" "}
+          {/* xs is screen on a "small device" (aka phone), 12 is the max amount */}
+          <Post post={post} setCurrentId={setCurrentId} /> {/*props drilling */}
         </Grid>
       ))}
     </Grid>
