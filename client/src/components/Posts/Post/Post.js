@@ -58,7 +58,7 @@ const Post = ({ post, setCurrentId }) => {
       </Typography>
 
       <CardContent>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="body2" color="textSecondary" component="p">
           {post.message}
         </Typography>
       </CardContent>
@@ -70,7 +70,7 @@ const Post = ({ post, setCurrentId }) => {
           onClick={() => dispatch(likePost(post._id))}
         >
           <ThumbUpAltIcon frontSize="small" />
-          Like
+          &nbsp; Like &nbsp; {/*creates spacing */}
           {post.likeCount}
         </Button>
 
