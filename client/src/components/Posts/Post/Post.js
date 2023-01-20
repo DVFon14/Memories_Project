@@ -1,33 +1,28 @@
 //============== React import ==============//
 import React from "react";
+import { useDispatch } from "react-redux";
 
 //============== Material UI import ==============//
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
-
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-} from "@material-ui/core";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 
-//============== Files and Folders imports ==============//
+//============== Imports from files and folders ==============//
 import useStyles from "./styles";
+import { deletePost } from "../../../actions/posts";
 
 //============== Code ==============//
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -75,7 +70,11 @@ const Post = ({ post, setCurrentId }) => {
           {post.likeCount}
         </Button>
 
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(deletePost(post._id))}
+        >
           <DeleteIcon frontSize="small" />
           Delete
         </Button>
