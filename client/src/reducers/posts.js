@@ -1,7 +1,7 @@
 export default (posts = [], action) => {
   switch (action.type) {
     case "UPDATE":
-      return posts.map(([post]) =>
+      return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );
 
@@ -15,5 +15,3 @@ export default (posts = [], action) => {
       return posts;
   }
 };
-
-//at minute 24:50, did he misspell "payload," or is "paylad" correct?

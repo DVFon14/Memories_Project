@@ -26,7 +26,9 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+    // console.log("Dispatch?", dispatch);
+    // console.log("Relooading");
+  }, [currentId, dispatch]);
 
   return (
     <Container maxwidth="lg">

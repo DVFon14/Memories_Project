@@ -36,10 +36,13 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault(); //to prevent automatic refresh from an action on the browser
 
     if (currentId) {
+      // console.log(currentId);
       dispatch(updatePost(currentId, postData));
     } else {
       dispatch(createPost(postData));
     }
+    // setCurrentId(null);
+    clear();
   };
 
   const clear = () => {
