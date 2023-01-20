@@ -16,7 +16,7 @@ import moment from "moment";
 
 //============== Imports from files and folders ==============//
 import useStyles from "./styles";
-import { deletePost } from "../../../actions/posts";
+import { deletePost, likePost } from "../../../actions/posts";
 
 //============== Code ==============//
 const Post = ({ post, setCurrentId }) => {
@@ -64,7 +64,11 @@ const Post = ({ post, setCurrentId }) => {
       </CardContent>
 
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(likePost(post._id))}
+        >
           <ThumbUpAltIcon frontSize="small" />
           Like
           {post.likeCount}
